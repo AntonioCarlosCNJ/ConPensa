@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,11 @@
 		6C84166F22D76E3E00991753 /* SectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C84166E22D76E3E00991753 /* SectionViewHeader.swift */; };
 		6C94CDFB22D62AA100770415 /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C94CDFA22D62AA100770415 /* ProductsCollectionViewCell.swift */; };
 		6CF9672622D50A2900651CC6 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF9672522D50A2900651CC6 /* CategoriesViewController.swift */; };
+		91BC414E22F0BF1D00E8416E /* Relacao_Lista_Produtos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC414822F0BF1C00E8416E /* Relacao_Lista_Produtos.swift */; };
+		91BC414F22F0BF1D00E8416E /* TabelaLista.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC414922F0BF1C00E8416E /* TabelaLista.swift */; };
+		91BC415022F0BF1D00E8416E /* ConPensaCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91BC414A22F0BF1D00E8416E /* ConPensaCoreData.xcdatamodeld */; };
+		91BC415122F0BF1D00E8416E /* TabelaProduto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC414C22F0BF1D00E8416E /* TabelaProduto.swift */; };
+		91BC415222F0BF1D00E8416E /* Banquito.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC414D22F0BF1D00E8416E /* Banquito.swift */; };
 		91CE974B22D3D9D7007C4117 /* CadastroProdutoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE974A22D3D9D7007C4117 /* CadastroProdutoViewController.swift */; };
 		942F2DB37316B8AAFE01ECA8 /* Pods_ConPensaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE50826CF6D30F2E32C5BC67 /* Pods_ConPensaUITests.framework */; };
 		A1A2C09422D5383C003627F2 /* LabelsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2C09322D5383C003627F2 /* LabelsController.swift */; };
@@ -62,6 +67,11 @@
 		6C94CDFA22D62AA100770415 /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
 		6CF9672522D50A2900651CC6 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		7454C446AB64088A8CDEE92C /* Pods-ConPensaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConPensaTests.release.xcconfig"; path = "Target Support Files/Pods-ConPensaTests/Pods-ConPensaTests.release.xcconfig"; sourceTree = "<group>"; };
+		91BC414822F0BF1C00E8416E /* Relacao_Lista_Produtos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Relacao_Lista_Produtos.swift; sourceTree = "<group>"; };
+		91BC414922F0BF1C00E8416E /* TabelaLista.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabelaLista.swift; sourceTree = "<group>"; };
+		91BC414B22F0BF1D00E8416E /* ConPensaCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ConPensaCoreData.xcdatamodel; sourceTree = "<group>"; };
+		91BC414C22F0BF1D00E8416E /* TabelaProduto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabelaProduto.swift; sourceTree = "<group>"; };
+		91BC414D22F0BF1D00E8416E /* Banquito.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Banquito.swift; sourceTree = "<group>"; };
 		91CE974A22D3D9D7007C4117 /* CadastroProdutoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroProdutoViewController.swift; sourceTree = "<group>"; };
 		A1A2C09322D5383C003627F2 /* LabelsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelsController.swift; sourceTree = "<group>"; };
 		A1E0FED522D3CCE1009B6BEA /* ConPensa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConPensa.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +148,11 @@
 		91ABB25F22D517F70049CA0D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				91BC414D22F0BF1D00E8416E /* Banquito.swift */,
+				91BC414A22F0BF1D00E8416E /* ConPensaCoreData.xcdatamodeld */,
+				91BC414822F0BF1C00E8416E /* Relacao_Lista_Produtos.swift */,
+				91BC414922F0BF1C00E8416E /* TabelaLista.swift */,
+				91BC414C22F0BF1D00E8416E /* TabelaProduto.swift */,
 				2E59D49D22D52B490021AC3C /* Listas.swift */,
 				6C84166C22D76DA100991753 /* Photos.swift */,
 			);
@@ -436,12 +451,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1E0FF0922D3E3CF009B6BEA /* CellTableViewCell.swift in Sources */,
+				91BC415122F0BF1D00E8416E /* TabelaProduto.swift in Sources */,
+				91BC415222F0BF1D00E8416E /* Banquito.swift in Sources */,
 				A1E0FEDB22D3CCE2009B6BEA /* ViewController.swift in Sources */,
 				6C94CDFB22D62AA100770415 /* ProductsCollectionViewCell.swift in Sources */,
 				A1A2C09422D5383C003627F2 /* LabelsController.swift in Sources */,
 				6C84166D22D76DA100991753 /* Photos.swift in Sources */,
 				91CE974B22D3D9D7007C4117 /* CadastroProdutoViewController.swift in Sources */,
 				6C84166F22D76E3E00991753 /* SectionViewHeader.swift in Sources */,
+				91BC415022F0BF1D00E8416E /* ConPensaCoreData.xcdatamodeld in Sources */,
+				91BC414E22F0BF1D00E8416E /* Relacao_Lista_Produtos.swift in Sources */,
+				91BC414F22F0BF1D00E8416E /* TabelaLista.swift in Sources */,
 				A1E0FED922D3CCE2009B6BEA /* AppDelegate.swift in Sources */,
 				6CF9672622D50A2900651CC6 /* CategoriesViewController.swift in Sources */,
 			);
@@ -778,6 +798,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		91BC414A22F0BF1D00E8416E /* ConPensaCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				91BC414B22F0BF1D00E8416E /* ConPensaCoreData.xcdatamodel */,
+			);
+			currentVersion = 91BC414B22F0BF1D00E8416E /* ConPensaCoreData.xcdatamodel */;
+			path = ConPensaCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A1E0FECD22D3CCE1009B6BEA /* Project object */;
 }

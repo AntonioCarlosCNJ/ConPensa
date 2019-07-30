@@ -8,6 +8,14 @@
 
 import UIKit
 
+struct cadastro {
+    var nome: String?
+    var descricao: String?
+    var quantidade: Int?
+    var image: UIImage?
+    
+}
+
 class CadastroProdutoViewController: UIViewController{
     
     @IBOutlet weak var productNameTextField: UITextField!
@@ -17,19 +25,26 @@ class CadastroProdutoViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        desingTextView()
         
+        productDescriptionTextView.delegate = self
+    }
+
+    @IBAction func buttonTapped(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func desingTextView(){
         productDescriptionTextView.text = "Descrição do produto..."
         productDescriptionTextView.textColor = .lightGray
-        productDescriptionTextView.font = UIFont(name: "verdana", size: 13.0)
+        productDescriptionTextView.font = UIFont(name: "SF Text Pro", size: 13.0)
         productDescriptionTextView.returnKeyType = .done
         
         productDescriptionTextView.layer.borderColor = UIColor.gray.cgColor
         productDescriptionTextView.layer.borderWidth = 2.3
         productDescriptionTextView.layer.cornerRadius = 5
-        
-        productDescriptionTextView.delegate = self
     }
-
+    
 }
 
 extension CadastroProdutoViewController: UITextViewDelegate {
@@ -38,7 +53,7 @@ extension CadastroProdutoViewController: UITextViewDelegate {
         if textView.text == "Descrição do produto..." {
             textView.text = ""
             textView.textColor = .black
-            textView.font = UIFont(name: "verdana", size: 18.0)
+            textView.font = UIFont(name: "SF Text Pro", size: 18.0)
         }
     }
     
