@@ -17,6 +17,12 @@
 		91BC415022F0BF1D00E8416E /* ConPensaCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91BC414A22F0BF1D00E8416E /* ConPensaCoreData.xcdatamodeld */; };
 		91BC415122F0BF1D00E8416E /* TabelaProduto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC414C22F0BF1D00E8416E /* TabelaProduto.swift */; };
 		91BC415222F0BF1D00E8416E /* Banquito.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC414D22F0BF1D00E8416E /* Banquito.swift */; };
+		91BC415522F0C42700E8416E /* CadastroProduto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC415422F0C42700E8416E /* CadastroProduto.swift */; };
+		91BC416422F0EE6600E8416E /* MinhaListaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC416022F0EE6600E8416E /* MinhaListaViewController.swift */; };
+		91BC416522F0EE6600E8416E /* MinhasListasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC416122F0EE6600E8416E /* MinhasListasViewController.swift */; };
+		91BC416622F0EE6600E8416E /* CriarListaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC416222F0EE6600E8416E /* CriarListaViewController.swift */; };
+		91BC416722F0EE6600E8416E /* AdicionarProdutosNaListaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC416322F0EE6600E8416E /* AdicionarProdutosNaListaViewController.swift */; };
+		91BC416922F0EEA700E8416E /* Produto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC416822F0EEA700E8416E /* Produto.swift */; };
 		91CE974B22D3D9D7007C4117 /* CadastroProdutoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE974A22D3D9D7007C4117 /* CadastroProdutoViewController.swift */; };
 		942F2DB37316B8AAFE01ECA8 /* Pods_ConPensaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE50826CF6D30F2E32C5BC67 /* Pods_ConPensaUITests.framework */; };
 		A1A2C09422D5383C003627F2 /* LabelsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2C09322D5383C003627F2 /* LabelsController.swift */; };
@@ -54,10 +60,6 @@
 		262A6D3FC572C8E5FDFD2AEA /* Pods_ConPensaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConPensaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E59D49B22D527EE0021AC3C /* MinhasListasTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinhasListasTableViewCell.swift; sourceTree = "<group>"; };
 		2E59D49D22D52B490021AC3C /* Listas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listas.swift; sourceTree = "<group>"; };
-		2E5BCA2F22D65545001DDB73 /* CriarListaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriarListaViewController.swift; sourceTree = "<group>"; };
-		2E5BCA3122D65557001DDB73 /* MinhasListasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinhasListasViewController.swift; sourceTree = "<group>"; };
-		2E5BCA3222D65557001DDB73 /* MinhaListaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinhaListaViewController.swift; sourceTree = "<group>"; };
-		2E5BCA3722D685B9001DDB73 /* AdicionarProdutosNaListaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionarProdutosNaListaViewController.swift; sourceTree = "<group>"; };
 		2E5BCA3922D685EA001DDB73 /* CelulaAdicionarProdutosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelulaAdicionarProdutosTableViewCell.swift; sourceTree = "<group>"; };
 		38F08EBC939533152F666E46 /* Pods-ConPensaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConPensaUITests.release.xcconfig"; path = "Target Support Files/Pods-ConPensaUITests/Pods-ConPensaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		65CC90572AE684C9B14BA10C /* Pods-ConPensaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConPensaTests.debug.xcconfig"; path = "Target Support Files/Pods-ConPensaTests/Pods-ConPensaTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -72,6 +74,12 @@
 		91BC414B22F0BF1D00E8416E /* ConPensaCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ConPensaCoreData.xcdatamodel; sourceTree = "<group>"; };
 		91BC414C22F0BF1D00E8416E /* TabelaProduto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabelaProduto.swift; sourceTree = "<group>"; };
 		91BC414D22F0BF1D00E8416E /* Banquito.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Banquito.swift; sourceTree = "<group>"; };
+		91BC415422F0C42700E8416E /* CadastroProduto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroProduto.swift; sourceTree = "<group>"; };
+		91BC416022F0EE6600E8416E /* MinhaListaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinhaListaViewController.swift; sourceTree = "<group>"; };
+		91BC416122F0EE6600E8416E /* MinhasListasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinhasListasViewController.swift; sourceTree = "<group>"; };
+		91BC416222F0EE6600E8416E /* CriarListaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriarListaViewController.swift; sourceTree = "<group>"; };
+		91BC416322F0EE6600E8416E /* AdicionarProdutosNaListaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdicionarProdutosNaListaViewController.swift; sourceTree = "<group>"; };
+		91BC416822F0EEA700E8416E /* Produto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Produto.swift; sourceTree = "<group>"; };
 		91CE974A22D3D9D7007C4117 /* CadastroProdutoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroProdutoViewController.swift; sourceTree = "<group>"; };
 		A1A2C09322D5383C003627F2 /* LabelsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelsController.swift; sourceTree = "<group>"; };
 		A1E0FED522D3CCE1009B6BEA /* ConPensa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConPensa.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,14 +131,14 @@
 		6CF9672422D509E200651CC6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2E5BCA3222D65557001DDB73 /* MinhaListaViewController.swift */,
-				2E5BCA3122D65557001DDB73 /* MinhasListasViewController.swift */,
-				2E5BCA2F22D65545001DDB73 /* CriarListaViewController.swift */,
+				91BC416322F0EE6600E8416E /* AdicionarProdutosNaListaViewController.swift */,
+				91BC416222F0EE6600E8416E /* CriarListaViewController.swift */,
+				91BC416022F0EE6600E8416E /* MinhaListaViewController.swift */,
+				91BC416122F0EE6600E8416E /* MinhasListasViewController.swift */,
 				91CE974A22D3D9D7007C4117 /* CadastroProdutoViewController.swift */,
 				6CF9672522D50A2900651CC6 /* CategoriesViewController.swift */,
 				A1E0FEDA22D3CCE2009B6BEA /* ViewController.swift */,
 				A1A2C09322D5383C003627F2 /* LabelsController.swift */,
-				2E5BCA3722D685B9001DDB73 /* AdicionarProdutosNaListaViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -148,6 +156,7 @@
 		91ABB25F22D517F70049CA0D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				91BC416822F0EEA700E8416E /* Produto.swift */,
 				91BC414D22F0BF1D00E8416E /* Banquito.swift */,
 				91BC414A22F0BF1D00E8416E /* ConPensaCoreData.xcdatamodeld */,
 				91BC414822F0BF1C00E8416E /* Relacao_Lista_Produtos.swift */,
@@ -165,6 +174,14 @@
 				2E59D49B22D527EE0021AC3C /* MinhasListasTableViewCell.swift */,
 			);
 			path = "Celulas Customizadas";
+			sourceTree = "<group>";
+		};
+		91BC415322F0C40800E8416E /* Wizards */ = {
+			isa = PBXGroup;
+			children = (
+				91BC415422F0C42700E8416E /* CadastroProduto.swift */,
+			);
+			path = Wizards;
 			sourceTree = "<group>";
 		};
 		A1A2C09222D5378B003627F2 /* Cells */ = {
@@ -203,6 +220,7 @@
 		A1E0FED722D3CCE2009B6BEA /* ConPensa */ = {
 			isa = PBXGroup;
 			children = (
+				91BC415322F0C40800E8416E /* Wizards */,
 				A1E0FED822D3CCE2009B6BEA /* AppDelegate.swift */,
 				91ABB27622D5367F0049CA0D /* Celulas Customizadas */,
 				91ABB25F22D517F70049CA0D /* Models */,
@@ -452,15 +470,21 @@
 			files = (
 				A1E0FF0922D3E3CF009B6BEA /* CellTableViewCell.swift in Sources */,
 				91BC415122F0BF1D00E8416E /* TabelaProduto.swift in Sources */,
+				91BC416622F0EE6600E8416E /* CriarListaViewController.swift in Sources */,
+				91BC416422F0EE6600E8416E /* MinhaListaViewController.swift in Sources */,
 				91BC415222F0BF1D00E8416E /* Banquito.swift in Sources */,
 				A1E0FEDB22D3CCE2009B6BEA /* ViewController.swift in Sources */,
 				6C94CDFB22D62AA100770415 /* ProductsCollectionViewCell.swift in Sources */,
 				A1A2C09422D5383C003627F2 /* LabelsController.swift in Sources */,
+				91BC415522F0C42700E8416E /* CadastroProduto.swift in Sources */,
 				6C84166D22D76DA100991753 /* Photos.swift in Sources */,
 				91CE974B22D3D9D7007C4117 /* CadastroProdutoViewController.swift in Sources */,
 				6C84166F22D76E3E00991753 /* SectionViewHeader.swift in Sources */,
+				91BC416522F0EE6600E8416E /* MinhasListasViewController.swift in Sources */,
+				91BC416922F0EEA700E8416E /* Produto.swift in Sources */,
 				91BC415022F0BF1D00E8416E /* ConPensaCoreData.xcdatamodeld in Sources */,
 				91BC414E22F0BF1D00E8416E /* Relacao_Lista_Produtos.swift in Sources */,
+				91BC416722F0EE6600E8416E /* AdicionarProdutosNaListaViewController.swift in Sources */,
 				91BC414F22F0BF1D00E8416E /* TabelaLista.swift in Sources */,
 				A1E0FED922D3CCE2009B6BEA /* AppDelegate.swift in Sources */,
 				6CF9672622D50A2900651CC6 /* CategoriesViewController.swift in Sources */,

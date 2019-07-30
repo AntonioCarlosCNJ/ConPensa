@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CelulaAdicionarProdutosTableViewCell: UITableViewCell {
+public class CelulaAdicionarProdutosTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
