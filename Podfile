@@ -6,7 +6,6 @@ target 'ConPensa' do
   use_frameworks!
 
   # Pods for ConPensa
-  pod "AUPickerCell"
 
   target 'ConPensaTests' do
     inherit! :search_paths
