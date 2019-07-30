@@ -8,16 +8,16 @@
 
 import UIKit
 
-var listasSemanais = [Listas]()
-var listasMensais = [Listas]()
+var listasSemanais = [ListasLocal]()
+var listasMensais = [ListasLocal]()
 
 class MinhasListasViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var lists = [[Listas]]()
+    var lists = [[ListasLocal]]()
     
     @IBOutlet weak var tableview: UITableView!
     
-    var listSelect = Listas()
+    var listSelect = ListasLocal()
     
 //    var list1Sem = Listas()
 //    var list2Sem = Listas()

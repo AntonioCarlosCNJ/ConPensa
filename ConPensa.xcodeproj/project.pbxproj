@@ -23,6 +23,9 @@
 		91BC416622F0EE6600E8416E /* CriarListaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC416222F0EE6600E8416E /* CriarListaViewController.swift */; };
 		91BC416722F0EE6600E8416E /* AdicionarProdutosNaListaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC416322F0EE6600E8416E /* AdicionarProdutosNaListaViewController.swift */; };
 		91BC416922F0EEA700E8416E /* Produto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC416822F0EEA700E8416E /* Produto.swift */; };
+		91BC416A22F0F5B200E8416E /* Listas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E59D49D22D52B490021AC3C /* Listas.swift */; };
+		91BC416B22F0F5BD00E8416E /* CelulaAdicionarProdutosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5BCA3922D685EA001DDB73 /* CelulaAdicionarProdutosTableViewCell.swift */; };
+		91BC416C22F0F5C600E8416E /* MinhasListasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E59D49B22D527EE0021AC3C /* MinhasListasTableViewCell.swift */; };
 		91CE974B22D3D9D7007C4117 /* CadastroProdutoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE974A22D3D9D7007C4117 /* CadastroProdutoViewController.swift */; };
 		942F2DB37316B8AAFE01ECA8 /* Pods_ConPensaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE50826CF6D30F2E32C5BC67 /* Pods_ConPensaUITests.framework */; };
 		A1A2C09422D5383C003627F2 /* LabelsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2C09322D5383C003627F2 /* LabelsController.swift */; };
@@ -471,10 +474,12 @@
 				A1E0FF0922D3E3CF009B6BEA /* CellTableViewCell.swift in Sources */,
 				91BC415122F0BF1D00E8416E /* TabelaProduto.swift in Sources */,
 				91BC416622F0EE6600E8416E /* CriarListaViewController.swift in Sources */,
+				91BC416C22F0F5C600E8416E /* MinhasListasTableViewCell.swift in Sources */,
 				91BC416422F0EE6600E8416E /* MinhaListaViewController.swift in Sources */,
 				91BC415222F0BF1D00E8416E /* Banquito.swift in Sources */,
 				A1E0FEDB22D3CCE2009B6BEA /* ViewController.swift in Sources */,
 				6C94CDFB22D62AA100770415 /* ProductsCollectionViewCell.swift in Sources */,
+				91BC416A22F0F5B200E8416E /* Listas.swift in Sources */,
 				A1A2C09422D5383C003627F2 /* LabelsController.swift in Sources */,
 				91BC415522F0C42700E8416E /* CadastroProduto.swift in Sources */,
 				6C84166D22D76DA100991753 /* Photos.swift in Sources */,
@@ -483,6 +488,7 @@
 				91BC416522F0EE6600E8416E /* MinhasListasViewController.swift in Sources */,
 				91BC416922F0EEA700E8416E /* Produto.swift in Sources */,
 				91BC415022F0BF1D00E8416E /* ConPensaCoreData.xcdatamodeld in Sources */,
+				91BC416B22F0F5BD00E8416E /* CelulaAdicionarProdutosTableViewCell.swift in Sources */,
 				91BC414E22F0BF1D00E8416E /* Relacao_Lista_Produtos.swift in Sources */,
 				91BC416722F0EE6600E8416E /* AdicionarProdutosNaListaViewController.swift in Sources */,
 				91BC414F22F0BF1D00E8416E /* TabelaLista.swift in Sources */,

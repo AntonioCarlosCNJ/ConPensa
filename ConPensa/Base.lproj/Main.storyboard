@@ -210,6 +210,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="tableview" destination="giJ-IP-dmc" id="uGU-ak-AAl"/>
                         <segue destination="KlH-WW-lHZ" kind="show" id="8QS-Tr-hhg"/>
                     </connections>
                 </viewController>
