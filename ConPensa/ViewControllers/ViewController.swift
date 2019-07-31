@@ -16,29 +16,47 @@ class ViewController: UIViewController {
     var cellAux = CellTableViewCell()
     var terminado = false
     
-//    var produtoTeste = TabelaProduto()
+    var produtoTeste = TabelaProduto()
     var produtosTeste: [TabelaProduto] = []
     let banquito = Banquito()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        produtoTeste.categoria = "fruta"
-//        produtoTeste.descricao = "comprei porque gosto"
-//        produtoTeste.desejado = 4
-//        produtoTeste.estoque = 10
-//        produtoTeste.id = 100
-//        produtoTeste.imagemPath = "˜/joaoPaulo"
-//        produtoTeste.nome = "laranja"
-//
-//        banquito.saveProdutos(produto: produtoTeste)
+        produtoTeste.categoria = "fruta"
+        produtoTeste.descricao = "comprei porque gosto"
+        produtoTeste.desejado = 4
+        produtoTeste.estoque = 10
+        produtoTeste.id = 100
+        produtoTeste.imagemPath = "˜/joaoPaulo"
+        produtoTeste.nome = "Laranja"
+
+        banquito.saveProdutos(produto: produtoTeste)
         
-                produtosTeste = banquito.fetchProdutos()!
+        produtosTeste = banquito.fetchProdutos()!
+
+        for prod in produtosTeste {
+            print(prod.id)
+            print(prod.nome)
+            print(prod.descricao)
+            print("...........;):")
+        }
         
-                for prod in produtosTeste {
-                    print(prod.descricao)
-                    print(prod.nome)
-                    print("...........;):")
-                }
+        print("\n\n\n")
+
+        banquito.updateProdutos(idAntigo: produtoTeste.id, novoProduto: produtoTeste)
+        banquito.delete(id: 100, tipo: .Produto)
+
+
+        produtosTeste = banquito.fetchProdutos()!
+
+        for prod in produtosTeste {
+            print(prod.id)
+            print(prod.nome)
+            print(prod.descricao)
+            print("...........;):")
+        }
+        
+        
         
     }
 }
