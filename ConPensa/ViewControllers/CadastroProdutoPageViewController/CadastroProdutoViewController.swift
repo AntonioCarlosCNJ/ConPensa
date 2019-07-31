@@ -31,18 +31,20 @@ class CadastroProdutoViewController: UIPageViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let firstViewController = orderedViewController.first {
+        dataSource = self
+        if let firstViewController = orderedViewController.first{
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
         
-        self.delegate = self
+        delegate = self
         configurePageControl()
         configureNavBar()
-//        productDescriptionTextView.delegate = self
     }
-
-    @IBAction func buttonTapped(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+    
+    func goToNextPage(){
+        if let nextViewController = viewController(at: 1){
+            setViewControllers([nextViewController], direction: .forward, animated: true, completion: nil)
+        }
     }
     
     func desingTextView(){
@@ -63,6 +65,28 @@ class CadastroProdutoViewController: UIPageViewController{
         pageControl.tintColor = .black
         pageControl.pageIndicatorTintColor = .white
         pageControl.currentPageIndicatorTintColor = .lightGray
+    }
+    
+    func viewController(at index: Int) -> UIViewController?{
+        if index < 0 || index >= orderedViewController.count{
+            return nil
+        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        switch index {
+        case 0:
+            if let viewController = storyboard.instantiateViewController(withIdentifier: "cadastroImagem") as? FirstViewController {
+                return viewController
+            }
+        case 1:
+            if let viewController = storyboard.instantiateViewController(withIdentifier: "cadastroNome") as? SecondViewController {
+                return viewController
+            }
+        default:
+            return nil
+        }
+        
+        
+        return nil
     }
     
     func configureNavBar(){
@@ -88,6 +112,8 @@ class CadastroProdutoViewController: UIPageViewController{
     func newViewController(viewController: String) -> UIViewController{
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: viewController)
     }
+    
+    
     
 }
 
@@ -118,7 +144,7 @@ extension CadastroProdutoViewController: UITextViewDelegate {
     }
 }
 
-extension CadastroProdutoViewController: UIPageViewControllerDelegate{
+extension CadastroProdutoViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource{
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = orderedViewController.firstIndex(of: viewController) else {

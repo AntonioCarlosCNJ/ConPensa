@@ -27,6 +27,8 @@
 		91BC416B22F0F5BD00E8416E /* CelulaAdicionarProdutosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5BCA3922D685EA001DDB73 /* CelulaAdicionarProdutosTableViewCell.swift */; };
 		91BC416C22F0F5C600E8416E /* MinhasListasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E59D49B22D527EE0021AC3C /* MinhasListasTableViewCell.swift */; };
 		91CE974B22D3D9D7007C4117 /* CadastroProdutoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE974A22D3D9D7007C4117 /* CadastroProdutoViewController.swift */; };
+		91E1D72E22F2298D0020A877 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E1D72D22F2298D0020A877 /* FirstViewController.swift */; };
+		91E1D73022F233210020A877 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E1D72F22F233210020A877 /* SecondViewController.swift */; };
 		942F2DB37316B8AAFE01ECA8 /* Pods_ConPensaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE50826CF6D30F2E32C5BC67 /* Pods_ConPensaUITests.framework */; };
 		A1A2C09422D5383C003627F2 /* LabelsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2C09322D5383C003627F2 /* LabelsController.swift */; };
 		A1E0FED922D3CCE2009B6BEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E0FED822D3CCE2009B6BEA /* AppDelegate.swift */; };
@@ -84,6 +86,8 @@
 		91BC416322F0EE6600E8416E /* AdicionarProdutosNaListaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdicionarProdutosNaListaViewController.swift; sourceTree = "<group>"; };
 		91BC416822F0EEA700E8416E /* Produto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Produto.swift; sourceTree = "<group>"; };
 		91CE974A22D3D9D7007C4117 /* CadastroProdutoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroProdutoViewController.swift; sourceTree = "<group>"; };
+		91E1D72D22F2298D0020A877 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		91E1D72F22F233210020A877 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		A1A2C09322D5383C003627F2 /* LabelsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelsController.swift; sourceTree = "<group>"; };
 		A1E0FED522D3CCE1009B6BEA /* ConPensa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConPensa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1E0FED822D3CCE2009B6BEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,7 +142,7 @@
 				91BC416222F0EE6600E8416E /* CriarListaViewController.swift */,
 				91BC416022F0EE6600E8416E /* MinhaListaViewController.swift */,
 				91BC416122F0EE6600E8416E /* MinhasListasViewController.swift */,
-				91CE974A22D3D9D7007C4117 /* CadastroProdutoViewController.swift */,
+				91E1D72A22F209A10020A877 /* CadastroProdutoPageViewController */,
 				6CF9672522D50A2900651CC6 /* CategoriesViewController.swift */,
 				A1E0FEDA22D3CCE2009B6BEA /* ViewController.swift */,
 				A1A2C09322D5383C003627F2 /* LabelsController.swift */,
@@ -185,6 +189,16 @@
 				91BC415422F0C42700E8416E /* CadastroProduto.swift */,
 			);
 			path = Wizards;
+			sourceTree = "<group>";
+		};
+		91E1D72A22F209A10020A877 /* CadastroProdutoPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				91CE974A22D3D9D7007C4117 /* CadastroProdutoViewController.swift */,
+				91E1D72D22F2298D0020A877 /* FirstViewController.swift */,
+				91E1D72F22F233210020A877 /* SecondViewController.swift */,
+			);
+			path = CadastroProdutoPageViewController;
 			sourceTree = "<group>";
 		};
 		A1A2C09222D5378B003627F2 /* Cells */ = {
@@ -474,6 +488,8 @@
 				A1E0FF0922D3E3CF009B6BEA /* CellTableViewCell.swift in Sources */,
 				91BC415122F0BF1D00E8416E /* TabelaProduto.swift in Sources */,
 				91BC416622F0EE6600E8416E /* CriarListaViewController.swift in Sources */,
+				91E1D73022F233210020A877 /* SecondViewController.swift in Sources */,
+				91E1D72E22F2298D0020A877 /* FirstViewController.swift in Sources */,
 				91BC416C22F0F5C600E8416E /* MinhasListasTableViewCell.swift in Sources */,
 				91BC416422F0EE6600E8416E /* MinhaListaViewController.swift in Sources */,
 				91BC415222F0BF1D00E8416E /* Banquito.swift in Sources */,
