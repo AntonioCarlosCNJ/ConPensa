@@ -20,7 +20,7 @@ class Banquito {
 //    let produtos : [TabelaProduto]
 //    let listaProdutos : [ListaProdutos]
     
-    func fetchListas() -> [TabelaLista]? {
+    static func fetchListas() -> [TabelaLista]? {
         var listasAux: [NSManagedObject] = []
         var saidaLista: [TabelaLista] = []
         
@@ -50,7 +50,7 @@ class Banquito {
         return saidaLista
     }
     
-    func fetchProdutos() -> [TabelaProduto]? {
+    static func fetchProdutos() -> [TabelaProduto]? {
         var produtosAux: [NSManagedObject] = []
         var saidaProd: [TabelaProduto] = []
         
@@ -83,7 +83,7 @@ class Banquito {
         return saidaProd
     }
     
-    func fetchRelacoes() -> [ListaProduto]? {
+    static func fetchRelacoes() -> [ListaProduto]? {
         var relacoesAux: [NSManagedObject] = []
         var saidaRelacao: [ListaProduto] = []
         
@@ -110,7 +110,7 @@ class Banquito {
         return saidaRelacao
     }
     
-    func updateListas(id: Int, novaLista: TabelaLista) {
+    static func updateListas(id: Int, novaLista: TabelaLista) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         
@@ -139,7 +139,7 @@ class Banquito {
         }
     }
     
-    func updateProdutos(idAntigo: Int, novoProduto: TabelaProduto) {
+    static func updateProdutos(idAntigo: Int, novoProduto: TabelaProduto) {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
@@ -174,7 +174,7 @@ class Banquito {
         
     }
     
-    func saveListas(lista: TabelaLista, produtos: [Int]) {
+    static func saveListas(lista: TabelaLista, produtos: [Int]) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Listas",in: managedContext)!
@@ -196,7 +196,7 @@ class Banquito {
         
     }
     
-    func saveProdutos(produto: TabelaProduto) {
+    static func saveProdutos(produto: TabelaProduto) {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
@@ -222,7 +222,7 @@ class Banquito {
         
     }
     
-    func saveRelacoes(idLista: Int, produtos: [Int]) {
+    static func saveRelacoes(idLista: Int, produtos: [Int]) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -241,7 +241,7 @@ class Banquito {
     }
     
     
-    func delete(id: Int, tipo: TipoDeDado) {
+    static func delete(id: Int, tipo: TipoDeDado) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -274,14 +274,14 @@ class Banquito {
                 }
             
             
-            self.deleteInRelationships(id: id, tipo: tipo)
+            Banquito.deleteInRelationships(id: id, tipo: tipo)
             print("Delecao em \(id) realizada com sucesso!")
         } catch  {
             print(error)
         }
     }
     
-    private func deleteInRelationships(id:Int, tipo: TipoDeDado) {
+    private static func deleteInRelationships(id:Int, tipo: TipoDeDado) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -315,6 +315,5 @@ class Banquito {
         } catch  {
             print(error)
         }
-        
     }
 }

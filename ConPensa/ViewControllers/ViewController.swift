@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     var produtoTeste = TabelaProduto()
     var produtosTeste: [TabelaProduto] = []
-    let banquito = Banquito()
+//    let banquito = Banquito()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +30,9 @@ class ViewController: UIViewController {
         produtoTeste.imagemPath = "˜/joaoPaulo"
         produtoTeste.nome = "Laranja"
 
-        banquito.saveProdutos(produto: produtoTeste)
+        Banquito.saveProdutos(produto: produtoTeste)
         
-        produtosTeste = banquito.fetchProdutos()!
+        produtosTeste = Banquito.fetchProdutos()!
 
         for prod in produtosTeste {
             print(prod.id)
@@ -43,11 +43,11 @@ class ViewController: UIViewController {
         
         print("\n\n\n")
 
-        banquito.updateProdutos(idAntigo: produtoTeste.id, novoProduto: produtoTeste)
-        banquito.delete(id: 100, tipo: .Produto)
+        Banquito.updateProdutos(idAntigo: produtoTeste.id, novoProduto: produtoTeste)
+        Banquito.delete(id: 100, tipo: .Produto)
 
 
-        produtosTeste = banquito.fetchProdutos()!
+        produtosTeste = Banquito.fetchProdutos()!
 
         for prod in produtosTeste {
             print(prod.id)
