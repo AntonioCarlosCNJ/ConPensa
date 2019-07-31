@@ -17,11 +17,11 @@ class TabelaProduto{
     
     var desejado = Int()
     var estoque = Int()
-    var validade = [Date]()
+    var validade = Date()
     
     var imagemPath = String()
     
-    init(id: Int, nome: String, descricao: String, categoria: String, desejado: Int, estoque: Int, validade: [Date], imagemPath: String) {
+    init(id: Int, nome: String, descricao: String, categoria: String, desejado: Int, estoque: Int, validade: Date, imagemPath: String) {
         self.id = id
         self.nome = nome
         self.descricao = descricao
@@ -32,6 +32,7 @@ class TabelaProduto{
         self.imagemPath = imagemPath
     }
     
-    
+    init() {
+    }
     
 }

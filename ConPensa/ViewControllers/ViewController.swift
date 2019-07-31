@@ -10,13 +10,54 @@ import UIKit
 
 class ViewController: UIViewController {
  
+    
     let labelsController = LabelsController()
     var indexAux = 0
     var cellAux = CellTableViewCell()
     var terminado = false
     
+    var produtoTeste = TabelaProduto()
+    var produtosTeste: [TabelaProduto] = []
+//    let banquito = Banquito()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        produtoTeste.categoria = "fruta"
+        produtoTeste.descricao = "comprei porque gosto"
+        produtoTeste.desejado = 4
+        produtoTeste.estoque = 10
+        produtoTeste.id = 100
+        produtoTeste.imagemPath = "˜/joaoPaulo"
+        produtoTeste.nome = "Laranja"
+
+        Banquito.saveProdutos(produto: produtoTeste)
+        
+        produtosTeste = Banquito.fetchProdutos()!
+
+        for prod in produtosTeste {
+            print(prod.id)
+            print(prod.nome)
+            print(prod.descricao)
+            print("...........;):")
+        }
+        
+        print("\n\n\n")
+
+        Banquito.updateProdutos(idAntigo: produtoTeste.id, novoProduto: produtoTeste)
+        Banquito.delete(id: 100, tipo: .Produto)
+
+
+        produtosTeste = Banquito.fetchProdutos()!
+
+        for prod in produtosTeste {
+            print(prod.id)
+            print(prod.nome)
+            print(prod.descricao)
+            print("...........;):")
+        }
+        
+        
+        
     }
 }
 

@@ -9,12 +9,18 @@
 import UIKit
 import CoreData
 
+enum TipoDeDado {
+    case Lista
+    case Produto
+    case Relacao
+}
+
 class Banquito {
 //    let listas : [TabelaLista]
 //    let produtos : [TabelaProduto]
 //    let listaProdutos : [ListaProdutos]
     
-    func fetchListas() -> [TabelaLista]? {
+    static func fetchListas() -> [TabelaLista]? {
         var listasAux: [NSManagedObject] = []
         var saidaLista: [TabelaLista] = []
         
@@ -44,7 +50,7 @@ class Banquito {
         return saidaLista
     }
     
-    func fetchProdutos() -> [TabelaProduto]? {
+    static func fetchProdutos() -> [TabelaProduto]? {
         var produtosAux: [NSManagedObject] = []
         var saidaProd: [TabelaProduto] = []
         
@@ -62,7 +68,7 @@ class Banquito {
         
         for produto in produtosAux {
             if produtosAux.count > 0 {
-                let produtinho = TabelaProduto(id: 0, nome: "Teste", descricao: "teste", categoria: "teste", desejado: 0, estoque: 0, validade: [Date()], imagemPath: "teste" )
+                let produtinho = TabelaProduto(id: 0, nome: "Teste", descricao: "teste", categoria: "teste", desejado: 0, estoque: 0, validade: Date(), imagemPath: "teste" )
                 produtinho.categoria =  produto.value(forKey: "categoria") as! String
                 produtinho.descricao =  produto.value(forKey: "descricao") as! String
                 produtinho.desejado =  produto.value(forKey: "desejado") as! Int
@@ -77,7 +83,7 @@ class Banquito {
         return saidaProd
     }
     
-    func fetchRelacoes() -> [ListaProduto]? {
+    static func fetchRelacoes() -> [ListaProduto]? {
         var relacoesAux: [NSManagedObject] = []
         var saidaRelacao: [ListaProduto] = []
         
@@ -104,7 +110,71 @@ class Banquito {
         return saidaRelacao
     }
     
-    func saveListas(lista: TabelaLista, produtos: [Int]) {
+    static func updateListas(id: Int, novaLista: TabelaLista) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Lista")
+        fetchRequest.predicate = NSPredicate(format: "id = %@", String(id))
+        
+        do {
+            let listasEncontrada = try managedContext.fetch(fetchRequest)
+            
+            for lista in listasEncontrada {
+                let aux = lista as! NSManagedObject
+                aux.setValue(novaLista.descricao, forKey: "descricao")
+                aux.setValue(novaLista.nomeLista, forKey: "nome")
+                aux.setValue(novaLista.dataDaCompra, forKey: "data")
+                aux.setValue(novaLista.frequenciaDeCompra, forKey: "semanal")
+                
+                do{
+                    try managedContext.save()
+                } catch {
+                    print(error)
+                }
+            }
+            print("Update em \(id) realizado com sucesso!")
+        } catch  {
+            print(error)
+        }
+    }
+    
+    static func updateProdutos(idAntigo: Int, novoProduto: TabelaProduto) {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Produto")
+        fetchRequest.predicate = NSPredicate(format: "id = %@", String(idAntigo))
+        
+        do {
+            let produtosEncontrados = try managedContext.fetch(fetchRequest)
+            
+            for produdo in produtosEncontrados {
+                let aux = produdo as! NSManagedObject
+                aux.setValue(novoProduto.nome, forKey: "nome")
+                aux.setValue(novoProduto.categoria, forKey: "categoria")
+                aux.setValue(novoProduto.descricao,forKey: "descricao")
+                aux.setValue(novoProduto.desejado,forKey: "desejado")
+                aux.setValue(novoProduto.estoque,forKey: "estoque")
+                aux.setValue(novoProduto.imagemPath,forKey: "imagem")
+                aux.setValue(novoProduto.validade,forKey: "validade")
+                
+                do{
+                    try managedContext.save()
+                } catch {
+                    print(error)
+                }
+            }
+            print("Update em \(idAntigo) realizado com sucesso!")
+        } catch  {
+            print(error)
+        }
+        
+    }
+    
+    static func saveListas(lista: TabelaLista, produtos: [Int]) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Listas",in: managedContext)!
@@ -126,7 +196,8 @@ class Banquito {
         
     }
     
-    func saveProdutos(produto: TabelaProduto) {
+    static func saveProdutos(produto: TabelaProduto) {
+        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -147,11 +218,11 @@ class Banquito {
             print("Deu ruim salvando o produto \(error)")
         }
         
-        
+        print("Produto Salvo com sucesso")
         
     }
     
-    func saveRelacoes(idLista: Int, produtos: [Int]) {
+    static func saveRelacoes(idLista: Int, produtos: [Int]) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -167,5 +238,82 @@ class Banquito {
             print("Deu erro salvando as relacoes \(error)")
         }
         
+    }
+    
+    
+    static func delete(id: Int, tipo: TipoDeDado) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        var entityName = ""
+        
+        switch tipo {
+        case .Produto:
+            entityName = "Produto"
+        case .Lista:
+             entityName = "Lista"
+        default:
+             entityName = "Relacao"
+        }
+        
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: entityName)
+        fetchRequest.predicate = NSPredicate(format: "id = %@", String(id))
+        
+        do {
+            let dadoEncontrado = try managedContext.fetch(fetchRequest)
+            if dadoEncontrado.count == 0 {
+                return
+            }
+            let objectToDelete = dadoEncontrado[0] as! NSManagedObject
+            managedContext.delete(objectToDelete)
+                
+                do{
+                    try managedContext.save()
+                } catch {
+                    print(error)
+                }
+            
+            
+            Banquito.deleteInRelationships(id: id, tipo: tipo)
+            print("Delecao em \(id) realizada com sucesso!")
+        } catch  {
+            print(error)
+        }
+    }
+    
+    private static func deleteInRelationships(id:Int, tipo: TipoDeDado) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        var formatType = ""
+        
+        switch tipo {
+        case .Produto:
+            formatType = "id_produto"
+        case .Lista :
+            formatType = "id_lista"
+        default:
+            formatType = "id_produto"
+        }
+        
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Lista_Produtos")
+        fetchRequest.predicate = NSPredicate(format: "\(formatType) = %@", String(id))
+        
+        do {
+            let dadosEncontrados = try managedContext.fetch(fetchRequest)
+            for currentObject in dadosEncontrados {
+                let  objectToDelete = currentObject as! NSManagedObject
+                managedContext.delete(objectToDelete)
+            }
+            do {
+                try managedContext.save()
+            } catch {
+                print(error)
+            }
+            
+            
+        } catch  {
+            print(error)
+        }
     }
 }
