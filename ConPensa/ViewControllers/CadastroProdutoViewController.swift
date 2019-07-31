@@ -26,10 +26,11 @@ class CadastroProdutoViewController: UIPageViewController{
     
     var pageControl = UIPageControl()
     
+    var navBar = UINavigationBar()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.dataSource = self
         if let firstViewController = orderedViewController.first {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
@@ -56,20 +57,32 @@ class CadastroProdutoViewController: UIPageViewController{
     }
     
     func configurePageControl() {
-        pageControl = UIPageControl(frame: CGRect(x: 0, y: UIScreen.main.bounds.maxY - 150, width: UIScreen.main.bounds.width, height: 50))
+        pageControl = UIPageControl(frame: CGRect(x: 0, y: 0, width: 50.0, height: 44.0))
         pageControl.numberOfPages = orderedViewController.count
         pageControl.currentPage = 0
         pageControl.tintColor = .black
         pageControl.pageIndicatorTintColor = .white
         pageControl.currentPageIndicatorTintColor = .lightGray
-        self.view.addSubview(pageControl)
     }
     
     func configureNavBar(){
-        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 30, width: self.view.frame.width, height: 50.0))
+        navBar = UINavigationBar(frame: CGRect(x: 0, y: 32.0, width: view.frame.width, height: 44.0))
         self.view.addSubview(navBar)
         
-        navBar.setItems([UINavigationItem(title: "Teste")], animated: true)
+        navBar.barTintColor = .red
+        
+        let cancelButton = UIBarButtonItem(title: "Cancelar", style: .plain, target: self, action: #selector(self.cancelButtonPressed))
+        let item = UINavigationItem(title: "Cadastro de Produto")
+        
+        item.titleView = pageControl
+        
+        item.leftBarButtonItem = cancelButton
+        
+        navBar.setItems([item], animated: true)
+    }
+    
+    @objc func cancelButtonPressed(){
+        dismiss(animated: true, completion: nil)
     }
     
     func newViewController(viewController: String) -> UIViewController{
@@ -105,7 +118,7 @@ extension CadastroProdutoViewController: UITextViewDelegate {
     }
 }
 
-extension CadastroProdutoViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource{
+extension CadastroProdutoViewController: UIPageViewControllerDelegate{
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = orderedViewController.firstIndex(of: viewController) else {
