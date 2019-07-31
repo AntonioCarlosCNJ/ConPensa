@@ -149,12 +149,12 @@
 			isa = PBXGroup;
 			children = (
 				91BC414D22F0BF1D00E8416E /* Banquito.swift */,
-				91BC414A22F0BF1D00E8416E /* ConPensaCoreData.xcdatamodeld */,
 				91BC414822F0BF1C00E8416E /* Relacao_Lista_Produtos.swift */,
 				91BC414922F0BF1C00E8416E /* TabelaLista.swift */,
 				91BC414C22F0BF1D00E8416E /* TabelaProduto.swift */,
 				2E59D49D22D52B490021AC3C /* Listas.swift */,
 				6C84166C22D76DA100991753 /* Photos.swift */,
+				91BC414A22F0BF1D00E8416E /* ConPensaCoreData.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -640,7 +640,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T9C59C8C3J;
+				DEVELOPMENT_TEAM = YWRG4H69V8;
 				INFOPLIST_FILE = ConPensa/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -659,7 +659,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T9C59C8C3J;
+				DEVELOPMENT_TEAM = YWRG4H69V8;
 				INFOPLIST_FILE = ConPensa/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

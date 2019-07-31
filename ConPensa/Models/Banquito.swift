@@ -62,7 +62,7 @@ class Banquito {
         
         for produto in produtosAux {
             if produtosAux.count > 0 {
-                let produtinho = TabelaProduto(id: 0, nome: "Teste", descricao: "teste", categoria: "teste", desejado: 0, estoque: 0, validade: [Date()], imagemPath: "teste" )
+                let produtinho = TabelaProduto(id: 0, nome: "Teste", descricao: "teste", categoria: "teste", desejado: 0, estoque: 0, validade: Date(), imagemPath: "teste" )
                 produtinho.categoria =  produto.value(forKey: "categoria") as! String
                 produtinho.descricao =  produto.value(forKey: "descricao") as! String
                 produtinho.desejado =  produto.value(forKey: "desejado") as! Int
@@ -127,6 +127,7 @@ class Banquito {
     }
     
     func saveProdutos(produto: TabelaProduto) {
+        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -147,7 +148,7 @@ class Banquito {
             print("Deu ruim salvando o produto \(error)")
         }
         
-        
+        print("Produto Salvo com sucesso")
         
     }
     
