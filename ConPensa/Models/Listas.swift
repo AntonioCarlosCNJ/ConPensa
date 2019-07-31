@@ -9,9 +9,9 @@
 
 import UIKit
 
-class Listas {
+class ListasLocal {
     var nome = String()
     var descricao = String()
-    var produtos = [String]()
+    var produtos = [[ProdutoLocal]]()
     var tipo = String()
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class MinhaListaViewController: UIViewController {
-    var listaSelecionada = Listas()
+    var listaSelecionada = ListasLocal()
     @IBOutlet weak var name: UILabel!
     
     override func viewDidLoad() {
