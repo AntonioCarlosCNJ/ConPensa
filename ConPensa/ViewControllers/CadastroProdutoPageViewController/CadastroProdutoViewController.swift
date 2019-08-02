@@ -24,14 +24,19 @@ class CadastroProdutoViewController: UIPageViewController{
                 self.newViewController(viewController: "cadastroCategoria")]
     }()
     
+    var currentIndex: Int = 0
+    
     var pageControl = UIPageControl()
     
     var navBar = UINavigationBar()
     
+    var nextButton: UIButton?
+    var backButton: UIButton?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataSource = self
+//        dataSource = self
         if let firstViewController = orderedViewController.first{
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
@@ -39,12 +44,8 @@ class CadastroProdutoViewController: UIPageViewController{
         delegate = self
         configurePageControl()
         configureNavBar()
-    }
-    
-    func goToNextPage(){
-        if let nextViewController = viewController(at: 1){
-            setViewControllers([nextViewController], direction: .forward, animated: true, completion: nil)
-        }
+        configureNextButton()
+        configureBackButton()
     }
     
     func desingTextView(){
@@ -64,36 +65,15 @@ class CadastroProdutoViewController: UIPageViewController{
         pageControl.currentPage = 0
         pageControl.tintColor = .black
         pageControl.pageIndicatorTintColor = .white
-        pageControl.currentPageIndicatorTintColor = .lightGray
-    }
-    
-    func viewController(at index: Int) -> UIViewController?{
-        if index < 0 || index >= orderedViewController.count{
-            return nil
-        }
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        switch index {
-        case 0:
-            if let viewController = storyboard.instantiateViewController(withIdentifier: "cadastroImagem") as? FirstViewController {
-                return viewController
-            }
-        case 1:
-            if let viewController = storyboard.instantiateViewController(withIdentifier: "cadastroNome") as? SecondViewController {
-                return viewController
-            }
-        default:
-            return nil
-        }
-        
-        
-        return nil
+        pageControl.currentPageIndicatorTintColor = .black
     }
     
     func configureNavBar(){
         navBar = UINavigationBar(frame: CGRect(x: 0, y: 32.0, width: view.frame.width, height: 44.0))
         self.view.addSubview(navBar)
         
-        navBar.barTintColor = .red
+        navBar.backgroundColor = .red
+        
         
         let cancelButton = UIBarButtonItem(title: "Cancelar", style: .plain, target: self, action: #selector(self.cancelButtonPressed))
         let item = UINavigationItem(title: "Cadastro de Produto")
@@ -103,6 +83,69 @@ class CadastroProdutoViewController: UIPageViewController{
         item.leftBarButtonItem = cancelButton
         
         navBar.setItems([item], animated: true)
+    }
+    
+    func configureNextButton(){
+        nextButton = UIButton(frame: CGRect(x: self.view.frame.width/2, y: self.view.frame.height/2, width: 100.0, height: 30.0))
+        
+        nextButton?.setTitle("Próximo", for: .normal)
+        nextButton?.backgroundColor = .white
+        nextButton?.setTitleColor(.black, for: .normal)
+        nextButton?.addTarget(self, action: #selector(self.goToNextPage), for: .touchUpInside)
+        
+        self.view.addSubview(nextButton!)
+    }
+    
+    func configureBackButton(){
+        backButton = UIButton(frame: CGRect(x: self.view.frame.width/2 - 150.0, y: self.view.frame.height/2, width: 100.0, height: 30.0))
+        
+        backButton?.setTitle("Anterior", for: .normal)
+        backButton?.backgroundColor = .white
+        backButton?.setTitleColor(.black, for: .normal)
+        backButton?.addTarget(self, action: #selector(self.goToBackPage), for: .touchUpInside)
+        
+        self.view.addSubview(backButton!)
+    }
+    
+    @objc func goToNextPage(){
+        currentIndex += 1
+        if let nextViewController = contentViewController(at: currentIndex){
+            setViewControllers([nextViewController], direction: .forward, animated: true, completion: {completed in self.delegate?.pageViewController?(self, didFinishAnimating: true, previousViewControllers: [], transitionCompleted: true)})
+        }
+        if currentIndex > 4{
+            currentIndex = 4
+        }
+    }
+    
+    @objc func goToBackPage(){
+        currentIndex -= 1
+        if let backViewController = contentViewController(at: currentIndex){
+            setViewControllers([backViewController], direction: .reverse, animated: true, completion: {completed in self.delegate?.pageViewController?(self, didFinishAnimating: true, previousViewControllers: [], transitionCompleted: true)})
+        }
+        if currentIndex < 0{
+            currentIndex = 0
+        }
+    }
+    
+    func contentViewController(at index: Int) -> UIViewController?{
+        if index < 0 || index >= orderedViewController.count{
+            return nil
+        }
+        
+        switch index {
+        case 0:
+            return orderedViewController[index] as? FirstViewController
+        case 1:
+            return orderedViewController[index] as? SecondViewController
+        case 2:
+            return orderedViewController[index]
+        case 3:
+            return orderedViewController[index]
+        case 4:
+            return orderedViewController[index]
+        default:
+            return nil
+        }
     }
     
     @objc func cancelButtonPressed(){
@@ -147,43 +190,26 @@ extension CadastroProdutoViewController: UITextViewDelegate {
 extension CadastroProdutoViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource{
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = orderedViewController.firstIndex(of: viewController) else {
-            return nil
-        }
         
-        let previousIndex = viewControllerIndex - 1
+        let previousIndex = currentIndex - 1
         
-        guard previousIndex >= 0 else {
-            return nil
-        }
-        
-        guard orderedViewController.count > previousIndex else {
-            return nil
-        }
-        
-        return orderedViewController[previousIndex]
+        return contentViewController(at: previousIndex)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = orderedViewController.firstIndex(of: viewController) else {
-            return nil
-        }
         
-        let nextIndex = viewControllerIndex + 1
+        let nextIndex = currentIndex + 1
         
-        guard orderedViewController.count != nextIndex else {
-            return nil
-        }
-        
-        guard orderedViewController.count > nextIndex else {
-            return nil
-        }
-        
-        return orderedViewController[nextIndex]
+        return contentViewController(at: nextIndex)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        let pageContentViewController = pageViewController.viewControllers![0]
-        self.pageControl.currentPage = orderedViewController.firstIndex(of: pageContentViewController)!
+        
+        guard let viewControllerIndex = orderedViewController.firstIndex(of: pageViewController.viewControllers![0]) else {
+            return
+        }
+        
+        currentIndex = viewControllerIndex
+        self.pageControl.currentPage = currentIndex
     }
 }

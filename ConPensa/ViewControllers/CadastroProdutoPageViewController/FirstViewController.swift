@@ -9,8 +9,6 @@
 import UIKit
 
 class FirstViewController: UIViewController {
-    
-    var pager: CadastroProdutoViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +20,10 @@ class FirstViewController: UIViewController {
     @IBAction func buttonTapped(_ sender: Any) {
         //load de viewController pelo storyboardID
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let viewController = storyboard.instantiateViewController(withIdentifier: "CadastroProdutoViewController") as? CadastroProdutoViewController {
-            pager = viewController
-        }
+        let viewController = storyboard.instantiateViewController(withIdentifier: "cadastroNome") as! SecondViewController
+        self.present(viewController, animated: true, completion: nil)
         
-        pager?.goToNextPage()
+        
     }
     
 
@@ -39,12 +36,5 @@ class FirstViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination
-        if let pageViewController = destination as? CadastroProdutoViewController{
-            pager = pageViewController
-        }
-    }
 
 }
